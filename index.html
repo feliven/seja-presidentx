@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seja Presidenta</title>
+    <meta
+      name="description"
+      content="Coloque seu nome, baixe sua Carta à Nação e se declare o verdadeiro presidente do Brasil. Sátira."
+    />
+    <meta property="og:title" content="Seja Presidente — Carta à Nação Brasileira" />
+    <meta
+      property="og:description"
+      content="Todo mundo pode ser o verdadeiro presidente do Brasil. Coloque seu nome, baixe a carta, compartilhe."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sejapresidente.com/" />
+    <meta property="og:image" content="https://sejapresidente.com/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="brasao.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Seja <span id="headingGender">Presidenta</span></h1>
+      <p id="headerDescription">
+        Todo mundo pode ser a verdadeira presidente do Brasil. Coloque seu nome, baixe a Carta à Nação e compartilhe.
+      </p>
+    </header>
+
+    <main>
+      <section class="card">
+        <label for="nome">Seu nome</label>
+        <input id="nome" type="text" maxlength="60" placeholder="Ex.: Maria da Silva" autocomplete="name" autofocus />
+        <div class="hint">Vai no lugar da assinatura, no fim da carta.</div>
+
+        <fieldset class="choice-group">
+          <legend>Gênero do texto</legend>
+          <div class="seg">
+            <label class="opt"
+              ><input type="radio" name="genero" value="feminino" checked /><span><b>👠 Feminino</b></span></label
+            >
+            <label class="opt"
+              ><input type="radio" name="genero" value="masculino" /><span><b>🎩 Masculino</b></span></label
+            >
+          </div>
+        </fieldset>
+
+        <label for="deque">Presidente de quê?</label>
+        <input id="deque" type="text" maxlength="60" placeholder="do Brasil" />
+        <div class="hint">Ex.: do Flamengo, da padaria, do grupo da família.</div>
+
+        <fieldset class="choice-group">
+          <legend>Formato</legend>
+          <div class="seg">
+            <label class="opt"
+              ><input type="radio" name="formato" value="insta" checked /><span
+                ><b>📱 Insta</b><small>1 imagem, texto curto</small></span
+              ></label
+            >
+            <label class="opt"
+              ><input type="radio" name="formato" value="carta" /><span
+                ><b>📄 Carta</b><small>3 páginas, texto completo</small></span
+              ></label
+            >
+          </div>
+        </fieldset>
+
+        <fieldset class="choice-group">
+          <legend>Versão da carta</legend>
+          <div class="seg">
+            <label class="opt"
+              ><input type="radio" name="versao" value="chad" checked /><span
+                ><b>🗿 Chad</b><small>"verdadeiro presidente do Brasil"</small></span
+              ></label
+            >
+            <label class="opt"
+              ><input type="radio" name="versao" value="broxa" /><span
+                ><b>🥀 Broxa</b><small>"líder do Brasil" (editada 1h depois)</small></span
+              ></label
+            >
+          </div>
+        </fieldset>
+
+        <label for="brasao">Brasão</label>
+        <select id="brasao">
+          <option value="republica">República Federativa do Brasil (atual)</option>
+          <option value="1889">Estados Unidos do Brazil (1889)</option>
+          <option value="imperio">Império do Brasil</option>
+          <option value="reino">Reino Unido de Portugal, Brasil e Algarves</option>
+          <option value="colonia">Brasil Colônia</option>
+          <option value="flamengo">Flamengo</option>
+          <option value="custom">Sua imagem… (upload)</option>
+        </select>
+        <input id="arquivo" type="file" accept="image/*" hidden />
+        <div class="hint" id="customHint" hidden>
+          A imagem fica só no seu navegador. Links compartilhados não levam ela, só o PNG/PDF.
+        </div>
+
+        <label for="carimbo">Carimbo</label>
+        <select id="carimbo">
+          <option value="">Nenhum</option>
+          <option value="CONFIDENCIAL">CONFIDENCIAL</option>
+          <option value="URGENTE">URGENTE</option>
+          <option value="VERDADEIRO">VERDADEIRO</option>
+          <option value="SEM FRAUDE">SEM FRAUDE</option>
+          <option value="EXILADO">EXILADO(A)</option>
+        </select>
+
+        <div class="actions">
+          <button class="primary" id="postarX" type="button">𝕏 Postar no X</button>
+          <button id="instagram" type="button">📷 Instagram</button>
+          <button id="compartilhar" type="button">↗ Compartilhar</button>
+          <button id="baixar" type="button">⬇ PNG</button>
+          <button id="pdf" type="button">⬇ PDF</button>
+          <a class="btn" id="zap" href="#" target="_blank" rel="noopener">WhatsApp</a>
+          <button id="copiar" type="button">🔗 Copiar link</button>
+        </div>
+        <div class="status" id="status"></div>
+      </section>
+
+      <section class="preview" id="preview" aria-label="Pré-visualização da carta"></section>
+    </main>
+
+    <footer>
+      Sátira. Este site não tem vínculo com nenhum partido, candidato, governo ou órgão público, e nada aqui é documento
+      oficial. Nenhum dado é enviado a servidor: a imagem é gerada no seu navegador. Brasões: domínio público, via
+      <a href="https://commons.wikimedia.org/wiki/Category:Coats_of_arms_of_Brazil">Wikimedia Commons</a>.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
